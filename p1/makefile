@@ -1,17 +1,17 @@
-all:Thread
+all:thread
 
 CC=g++
 CPPFLAGS=-Wall -std=c++11 -ggdb
 LDFLAGS=-pthread
 
-Thread:Thread.o
+thread:thread.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
-Thread.o:thread.cpp
+thread.o:thread.cpp
 	$(CC) $(CPPFLAGS) -o $@ -c $^
 
 .PHONY:
 	clean
 
 clean:
-	rm Thread.o Thread
+	rm thread.o thread
