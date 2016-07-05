@@ -71,7 +71,10 @@ void test3()
     for (int i = 0; i < 5; ++i) {
         threads[i] = std::thread(thread_task_1d, i + 1);
     }
+
     std::cout << "Done spawning threads! Now wait for them to join\n";
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cout << "Main thread after watting for 2 seconds.\n";
 
     for (auto &t : threads) {
         t.join();
